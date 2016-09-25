@@ -37,7 +37,10 @@ namespace FlashBackMaps
                       "~/Scripts/Controllers/AddFlashBackController.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/photouploaderjs").Include(
-                      "~/Scripts/photouploader.js"));
+                      "~/Scripts/flow.js",
+                      "~/Scripts/flow.min.js",
+                      "~/Scripts/ng-flow.js",
+                      "~/Scripts/ng-flow.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
@@ -45,9 +48,6 @@ namespace FlashBackMaps
 
             bundles.Add(new StyleBundle("~/Content/leaflet").Include(
                       "~/Content/leaflet.css"));
-
-            bundles.Add(new StyleBundle("~/bundles/photouploadercss").Include(
-                      "~/Content/photouploader.css"));
         }
     }
 }

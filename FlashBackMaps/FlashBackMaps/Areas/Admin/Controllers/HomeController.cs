@@ -14,6 +14,8 @@ namespace FlashBackMaps.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
+        private const string _uploadFolder = "/";
+
         // GET: Admin/Home
         //[Authorize(Roles = "Admin, AnotherRole")]
         public ActionResult Index()
@@ -59,6 +61,91 @@ namespace FlashBackMaps.Areas.Admin.Controllers
             }
             // after successfully uploading redirect the user
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public void UploadFile()
+        {
+            var queryString = Request.QueryString;
+            if (queryString.Count == 0) return;
+
+            // Read parameters
+            var uploadToken = queryString.Get("upload_Token");
+            int resumableChunkNumber = int.Parse(queryString.Get("resumableChunkNumber"));
+            //var resumableIdentifier = queryString.Get("resumableIdentifier");
+            //var resumableChunkSize = queryString.Get("resumableChunkSize");
+            //var resumableTotalSize = queryString.Get("resumableTotalSize");
+            //var resumableFilename = queryString.Get("resumableFilename");
+
+            var filePath = string.Format("{0}/{1}/{1}.part{2}", _uploadFolder,
+                           uploadToken, resumableChunkNumber.ToString("0000"));
+            var localFilePath = Server.MapPath(filePath);
+
+            // Response
+            var fileExists = System.IO.File.Exists(localFilePath);
+            if (fileExists)
+            {
+                Response.Status = "200 OK";
+                Response.StatusCode = 200;
+            }
+            else
+            {
+                Response.Status = "404 Not Found";
+                Response.StatusCode = 404;
+            }
+        }
+
+        [HttpPost]
+        public void UploadFile(object data)
+        {
+            var queryString = Request.Form;
+            if (queryString.Count == 0) return;
+
+            // Read parameters
+            var uploadToken = queryString.Get("upload_Token");
+            int resumableChunkNumber = int.Parse(queryString.Get("resumableChunkNumber"));
+            var resumableFilename = queryString.Get("resumableFilename");
+            var resumableIdentifier = queryString.Get("resumableIdentifier");
+            int resumableChunkSize = int.Parse(queryString.Get("resumableChunkSize"));
+            long resumableTotalSize = long.Parse(queryString.Get("resumableTotalSize"));
+
+            var filePath = string.Format("{0}/{1}/{1}.part{2}", _uploadFolder,
+                                  uploadToken, resumableChunkNumber.ToString("0000"));
+            var localFilePath = Server.MapPath(filePath);
+            var directory = System.IO.Path.GetDirectoryName(localFilePath);
+            if (!System.IO.Directory.Exists(localFilePath)) System.IO.Directory.CreateDirectory(directory);
+
+            if (Request.Files.Count == 1)
+            {
+                // save chunk
+                if (!System.IO.File.Exists(localFilePath))
+                {
+                    Request.Files[0].SaveAs(localFilePath);
+                }
+
+                // Check if all chunks are ready and save file
+                var files = System.IO.Directory.GetFiles(directory);
+                if ((files.Length + 1) * (long)resumableChunkSize >= resumableTotalSize)
+                {
+                    filePath = string.Format("{0}/{1}{2}", _uploadFolder,
+                      uploadToken, System.IO.Path.GetExtension(resumableFilename));
+                    localFilePath = Server.MapPath(filePath);
+                    using (var fs = new FileStream(localFilePath, FileMode.CreateNew))
+                    {
+                        foreach (string file in files.OrderBy(x => x))
+                        {
+                            var buffer = System.IO.File.ReadAllBytes(file);
+                            fs.Write(buffer, 0, buffer.Length);
+                            System.IO.File.Delete(file);
+                        }
+                    }
+                    System.IO.Directory.Delete(directory);
+                }
+            }
+            else
+            {
+                // log error
+            }
         }
     }
 }

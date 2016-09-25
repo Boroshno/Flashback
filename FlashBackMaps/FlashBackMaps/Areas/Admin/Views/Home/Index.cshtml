@@ -10,27 +10,49 @@
     <h1>{{models.helloAngular}}</h1>
 </div>
 
-
-@using (Html.BeginForm("FileUpload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <label for="file">Upload Image:</label>
-    <input type="file" name="file" id="file" style="width: 100%;" />
-    <input type="submit" value="Upload" class="submit" />
-}
-
-<form class="form-horizontal">
+<div class="form-horizontal">
     <div class="row">
         <div class="form-group col-sm-6">
-            <div class="fileupload fileupload-new" data-provides="fileupload">
-                <span class="btn btn-primary btn-file">
-                    <span class="fileupload-new">Select file</span>
-                    <span class="fileupload-exists">Change</span>         <input type="file" />
-                </span>
-                <span class="fileupload-preview"></span>
-                <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+            <div flow-init="{target: '/upload'}"
+                 flow-files-submitted="$flow.upload()"
+                 flow-file-success="$file.msg = $message">
+
+                <input type="file" flow-btn />
+                @*Input OR Other element as upload button
+                <span class="btn" flow-btn>Upload File</span>*@
+
+                <table>
+                    <tr ng-repeat="file in $flow.files">
+                        <td>{{$index+1}}</td>
+                        <td>{{file.name}}</td>
+                        <td>{{file.msg}}</td>
+                    </tr>
+                </table>
+
+                <img flow-img="$flow.files[0]" style="width:200px; height:100px;"/>
+                {{$flow.msg}}
             </div>
         </div>
         <div class="form-group col-sm-6">
+            <div flow-init="{target: '/upload'}"
+                 flow-files-submitted="$flow.upload()"
+                 flow-file-success="$file.msg = $message">
+
+                <input type="file" flow-btn />
+                @*Input OR Other element as upload button
+            <span class="btn" flow-btn>Upload File</span>*@
+
+                <table>
+                    <tr ng-repeat="file in $flow.files">
+                        <td>{{$index+1}}</td>
+                        <td>{{file.name}}</td>
+                        <td>{{file.msg}}</td>
+                    </tr>
+                </table>
+
+                <img flow-img="$flow.files[0]" style="width:200px; height:100px;" />
+                {{$flow.msg}}
+            </div>
         </div>
     </div>
     <div class="row">
@@ -113,8 +135,10 @@
             </div>
         </div>
     </div>
-</form>
+</div>
 
-@Scripts.Render("~/bundles/addflashback")
-@Scripts.Render("~/bundles/photouploaderjs")
-@Scripts.Render("~/bundles/photouploadercss")
+@section scripts {
+    @Scripts.Render("~/bundles/photouploaderjs")
+    @Scripts.Render("~/bundles/addflashback")
+}
+
