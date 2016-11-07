@@ -27,8 +27,10 @@ namespace FlashBackMaps
                       "~/Scripts/angular.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/leaflet").Include(
-                      "~/Scripts/leaflet.js",
-                      "~/Scripts/LeafletScript.js"));
+                      "~/Scripts/leaflet.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/mainpagescripts").Include(
+                      "~/Scripts/PageScripts/LeafletMainPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularforadmins").Include(
                       "~/Scripts/AdminAngularScript.js"));

@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -184,9 +185,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\1.1.png" />
-    <Content Include="Images\1.2.png" />
-    <Content Include="Images\arr.png" />
+    <Content Include="Views\Main\Images\1.1.png" />
+    <Content Include="Views\Main\Images\1.2.png" />
+    <Content Include="Views\Main\Images\arr.png" />
     <Content Include="Scripts\AdminAngularScript.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -206,7 +207,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\leaflet.js" />
-    <Content Include="Scripts\LeafletScript.js" />
+    <Content Include="Scripts\PageScripts\LeafletMainPage.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ng-flow.js" />
     <Content Include="Scripts\ng-flow.min.js" />
