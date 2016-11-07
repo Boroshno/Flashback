@@ -166,6 +166,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AddPhotoController.cs" />
     <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -185,10 +186,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Views\Main\Images\1.1.png" />
-    <Content Include="Views\Main\Images\1.2.png" />
-    <Content Include="Views\Main\Images\arr.png" />
-    <Content Include="Scripts\AdminAngularScript.js" />
+    <Content Include="Views\AddPhoto\Images\1.1.png" />
+    <Content Include="Views\AddPhoto\Images\1.2.png" />
+    <Content Include="Views\AddPhoto\Images\arr.png" />
+    <Content Include="Scripts\FlashbackAngularScript.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -214,6 +215,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Images\1.1.png" />
+    <Content Include="Images\1.2.png" />
+    <Content Include="Images\arr.png" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -251,6 +255,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\AddPhoto\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

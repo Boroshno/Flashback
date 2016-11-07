@@ -1,0 +1,161 @@
+﻿
+@{
+    ViewBag.Title = "Add photo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+</br></br></br></br>
+<div ng-controller="AddFlashBackController">
+    <input type="text" ng-model="models.helloAngular" />
+    <h1>{{models.helloAngular}}</h1>
+</div>
+
+<div class="form-horizontal">
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <div flow-init="{target: '/upload', singleFile: true}"
+                 flow-files-submitted="$flow.upload()"
+                 flow-file-success="$file.msg = $message">
+
+                <input type="file" flow-btn />
+                @*Input OR Other element as upload button
+                    <span class="btn" flow-btn>Upload File</span>*@
+
+                <table>
+                    <tr ng-repeat="file in $flow.files">
+                        <td>{{$index+1}}</td>
+                        <td>{{file.name}}</td>
+                        <td>{{file.msg}}</td>
+                    </tr>
+                </table>
+
+                <img flow-img="$flow.files[0]" style="width:200px; height:100px;" />
+                {{$flow.msg}}
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <div flow-init="{target: '/upload'}"
+                 flow-files-submitted="$flow.upload()"
+                 flow-file-success="$file.msg = $message">
+
+                <input type="file" flow-btn />
+                @*Input OR Other element as upload button
+                    <span class="btn" flow-btn>Upload File</span>*@
+
+                <table>
+                    <tr ng-repeat="file in $flow.files">
+                        <td>{{$index+1}}</td>
+                        <td>{{file.name}}</td>
+                        <td>{{file.msg}}</td>
+                    </tr>
+                </table>
+
+                <img flow-img="$flow.files[0]" style="width:200px; height:100px;" />
+                {{$flow.msg}}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <figure class="cd-image-container">
+                <img src="Images/1.1.png" alt="Original Image">
+                <span class="cd-image-label" data-type="original">Original</span>
+
+                <div class="cd-resize-img">
+                    <!-- the resizable image on top -->
+                    <img src="Images/1.2.png" alt="Modified Image">
+                    <span class="cd-image-label" data-type="modified">Modified</span>
+                </div>
+
+                <span class="cd-handle"></span> <!-- slider handle -->
+            </figure>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="inputName" class="control-label">Name</label>
+            <div>
+                <input class="form-control" id="inputName" placeholder="Name">
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="inputDirection" class="control-label">Direction</label>
+            <div>
+                <select class="form-control" id="inputDirection" placeholder="Direction">
+                    <option>West</option>
+                    <option>North</option>
+                    <option>East</option>
+                    <option>South</option>
+                    <option>South-East</option>
+                    <option>South-West</option>
+                    <option>North-East</option>
+                    <option>North-West</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="inputAuthorOld" class="control-label">Author</label>
+            <div>
+                <input class="form-control" id="inputAuthorOld" placeholder="Author">
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="inputAuthorNew" class="control-label">Author</label>
+            <div>
+                <input class="form-control" id="inputAuthorNew" placeholder="Author">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="inputSourceOld" class="control-label">Source</label>
+            <div>
+                <input class="form-control" id="inputSourceOld" placeholder="Source">
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="inputSourceNew" class="control-label">Source</label>
+            <div>
+                <input class="form-control" id="inputSourceNew" placeholder="Source">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="inputYearOld" class="control-label">Year</label>
+            <div>
+                <input class="form-control" id="inputYearOld" placeholder="Year">
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="inputYearNew" class="control-label">Year</label>
+            <div>
+                <input class="form-control" id="inputYearNew" placeholder="Year">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label for="inputText" class="control-label">Text</label>
+            <div>
+                <textarea class="form-control" id="inputText" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="inputArticle" class="control-label">Aticle</label>
+            <div>
+                <select class="form-control" id="inputArticle"></select>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/photouploaderjs")
+    @Scripts.Render("~/bundles/addflashback")
+    @Scripts.Render("~/bundles/angularflashbackscript")
+}
+
