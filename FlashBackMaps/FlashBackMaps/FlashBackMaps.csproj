@@ -189,7 +189,6 @@
     <Content Include="Views\AddPhoto\Images\1.1.png" />
     <Content Include="Views\AddPhoto\Images\1.2.png" />
     <Content Include="Views\AddPhoto\Images\arr.png" />
-    <Content Include="Scripts\FlashbackAngularScript.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -209,12 +208,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\leaflet.js" />
     <Content Include="Scripts\PageScripts\LeafletMainPage.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ng-flow.js" />
     <Content Include="Scripts\ng-flow.min.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="Images\1.1.png" />
     <Content Include="Images\1.2.png" />
     <Content Include="Images\arr.png" />
