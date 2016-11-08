@@ -186,6 +186,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\ImageComparisonSlider.js" />
+    <Content Include="Scripts\PageScripts\ImageComparorAddFlashbackPage.js" />
+    <Content Include="Scripts\PageScripts\ImageComparorMainPage.js" />
     <Content Include="Views\AddPhoto\Images\1.1.png" />
     <Content Include="Views\AddPhoto\Images\1.2.png" />
     <Content Include="Views\AddPhoto\Images\arr.png" />
@@ -196,7 +199,7 @@
     <Content Include="Areas\Admin\Views\Shared\_adminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Controllers\AddFlashBackController.js" />
+    <Content Include="Scripts\PageScripts\AngularAddFlashBackPage.js" />
     <Content Include="Scripts\flow.js" />
     <Content Include="Scripts\flow.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

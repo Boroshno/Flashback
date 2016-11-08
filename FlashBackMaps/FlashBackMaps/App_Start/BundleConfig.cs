@@ -24,11 +24,16 @@ namespace FlashBackMaps
             bundles.Add(new ScriptBundle("~/bundles/leaflet").Include(
                       "~/Scripts/leaflet.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/imagecomparisonslider").Include(
+                      "~/Scripts/ImageComparisonSlider.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/mainpagescripts").Include(
+                      "~/Scripts/PageScripts/ImageComparorMainPage.js",
                       "~/Scripts/PageScripts/LeafletMainPage.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/addflashback").Include(
-                      "~/Scripts/Controllers/AddFlashBackController.js"));
+            bundles.Add(new ScriptBundle("~/bundles/addflashbackpagescripts").Include(
+                      "~/Scripts/PageScripts/ImageComparorAddFlashbackPage.js",
+                      "~/Scripts/PageScripts/AngularAddFlashBackPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/photouploaderjs").Include(
                       "~/Scripts/flow.js",
