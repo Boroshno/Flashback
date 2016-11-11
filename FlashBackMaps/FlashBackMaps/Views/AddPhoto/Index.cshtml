@@ -11,8 +11,8 @@
             <div class="row">
                 <div class="form-group col-sm-6">
                     <div flow-init="{target: '/upload', singleFile: true}"
-                         flow-files-submitted="$flow.upload()"
-                         flow-file-success="$file.msg = $message">
+                         flow-file-success="$file.msg = $message"
+                         flow-name="$scope.obj.firstflow">
 
                         <input type="file" flow-btn />
                         @*Input OR Other element as upload button
@@ -26,14 +26,17 @@
                             </tr>
                         </table>
 
-                        <img flow-img="$flow.files[0]" style="width:200px; height:100px;" />
+                        <img flow-img="$flow.files[0]" style="width:200px; height:100px;"/>
                         {{$flow.msg}}
+                        <input type="text" ng-model="$scope.obj.firstflow.files.length" />
+                        <input type="text" ng-model="$scope.existingFlowObject.files.length" />
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <div flow-init="{target: '/upload'}"
                          flow-files-submitted="$flow.upload()"
-                         flow-file-success="$file.msg = $message">
+                         flow-file-success="$file.msg = $message"
+                         flow-name="$scope.obj.secondflow">
 
                         <input type="file" flow-btn />
                         @*Input OR Other element as upload button
@@ -47,20 +50,21 @@
                             </tr>
                         </table>
 
-                        <img flow-img="$flow.files[0]" style="width:200px; height:100px;" />
+                        <img flow-img="$flow.files[0]" style="width:200px; height:100px;"/>
                         {{$flow.msg}}
                     </div>
                 </div>
             </div>
+            <input type="text" ng-model="$scope.obj.firstflow.files.length" />
             <div class="row">
                 <div class="form-group col-sm-12">
                     <figure class="cd-image-container">
-                        <img src="Images/1.1.png" alt="Original Image">
+                        <img ng-img="$scope.flow.files[0]" style="width:200px; height:100px;" alt="Original Image">
                         <span class="cd-image-label" data-type="original">Original</span>
 
                         <div class="cd-resize-img">
                             <!-- the resizable image on top -->
-                            <img src="Images/1.2.png" alt="Modified Image">
+                            <img ng-img="$flow.files[0]" style="width:200px; height:100px;" alt="Modified Image">
                             <span class="cd-image-label" data-type="modified">Modified</span>
                         </div>
 
