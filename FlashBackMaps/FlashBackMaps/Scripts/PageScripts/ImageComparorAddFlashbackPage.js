@@ -15,6 +15,6 @@
     //                        ');
     //});
 
-    imageSlider($('.cd-image-container'), false, false, false);
+    //imageSlider($('.cd-image-container'), false, false, false);
 
 });
