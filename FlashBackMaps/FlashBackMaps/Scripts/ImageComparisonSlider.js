@@ -1,5 +1,5 @@
 ﻿function imageSlider(imageComparisonContainers, dragging, scrolling, resizing) {
-    
+
     //check if the .cd-image-container is in the viewport 
     //if yes, animate it
     checkPosition(imageComparisonContainers);
@@ -15,6 +15,8 @@
     //make the .cd-handle element draggable and modify .cd-resize-img width according to its position
     imageComparisonContainers.each(function () {
         var actual = $(this);
+        //Change the size of .cd-image-container
+        actual.width(actual.find('img').outerWidth());
         drags(actual.find('.cd-handle'), actual.find('.cd-resize-img'), actual, actual.find('.cd-image-label[data-type="original"]'), actual.find('.cd-image-label[data-type="modified"]'));
     });
 

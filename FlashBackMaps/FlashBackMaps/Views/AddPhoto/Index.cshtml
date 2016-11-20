@@ -12,7 +12,7 @@
                 <div class="form-group col-sm-6">
                     <div flow-init="{target: '/upload', singleFile: true}"
                          flow-file-success="$file.msg = $message"
-                         flow-file-added="someHandlerMethod( $file, $event, $flow )">
+                         flow-file-added="FirstPhotoAdded( $file, $event, $flow )">
 
                         <input type="file" flow-btn />
                         @*Input OR Other element as upload button
@@ -20,21 +20,17 @@
 
                         <table>
                             <tr ng-repeat="file in $flow.files">
-                                <td>{{$index+1}}</td>
                                 <td>{{file.name}}</td>
-                                <td>{{file.msg}}</td>
                             </tr>
                         </table>
-
-                        <img flow-img="$flow.files[0]" style="width:200px; height:100px;"/>
-                        {{$flow.msg}}
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <div flow-init="{target: '/upload'}"
                          flow-files-submitted="$flow.upload()"
                          flow-file-success="$file.msg = $message"
-                         flow-name="$scope.obj.secondflow">
+                         flow-name="$scope.obj.secondflow"
+                         flow-file-added="SecondPhotoAdded( $file, $event, $flow )">
 
                         <input type="file" flow-btn />
                         @*Input OR Other element as upload button
@@ -42,26 +38,21 @@
 
                         <table>
                             <tr ng-repeat="file in $flow.files">
-                                <td>{{$index+1}}</td>
                                 <td>{{file.name}}</td>
-                                <td>{{file.msg}}</td>
                             </tr>
                         </table>
-
-                        <img flow-img="$flow.files[0]" style="width:200px; height:100px;"/>
-                        {{$flow.msg}}
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-sm-12">
                     <figure class="cd-image-container">
-                        <img ng-src="{{$scope.img1}}" style="width:200px; height:100px;" alt="Original Image">
+                        <img ng-src="{{img1}}" alt="Original Image">
                         <span class="cd-image-label" data-type="original">Original</span>
 
                         <div class="cd-resize-img">
                             <!-- the resizable image on top -->
-                            <img ng-src="{{$scope.img1}}" style="width:200px; height:100px;" alt="Modified Image">
+                            <img ng-src="{{img2}}" alt="Modified Image">
                             <span class="cd-image-label" data-type="modified">Modified</span>
                         </div>
 
@@ -69,7 +60,6 @@
                     </figure>
                 </div>
             </div>
-            <img ng-src="{{$scope.img1}}" style="width:200px; height:100px;" alt="Original Image">
             <div class="row">
                 <div class="form-group col-sm-6">
                     <label for="inputName" class="control-label">Name</label>
