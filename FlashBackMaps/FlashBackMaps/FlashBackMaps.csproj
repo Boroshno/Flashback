@@ -192,9 +192,7 @@
     <Content Include="Scripts\images\marker-icon-2x.png" />
     <Content Include="Scripts\images\marker-icon.png" />
     <Content Include="Scripts\images\marker-shadow.png" />
-    <Content Include="Scripts\PageScripts\ImageComparorAddFlashbackPage.js" />
     <Content Include="Scripts\PageScripts\ImageComparorMainPage.js" />
-    <Content Include="Scripts\PageScripts\LeafletAddFlashbackPage.js" />
     <Content Include="Views\AddPhoto\Images\1.1.png" />
     <Content Include="Views\AddPhoto\Images\1.2.png" />
     <Content Include="Views\AddPhoto\Images\arr.png" />
@@ -205,7 +203,7 @@
     <Content Include="Areas\Admin\Views\Shared\_adminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\PageScripts\AngularAddFlashBackPage.js" />
+    <Content Include="Scripts\PageScripts\AddFlashBackPage.js" />
     <Content Include="Scripts\flow.js" />
     <Content Include="Scripts\flow.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

@@ -64,13 +64,13 @@
                 <div class="form-group col-sm-6">
                     <label for="inputName" class="control-label">Name</label>
                     <div>
-                        <input class="form-control" id="inputName" placeholder="Name">
+                        <input class="form-control" id="inputName" placeholder="Name" ng-model="Name">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="inputDirection" class="control-label">Direction</label>
                     <div>
-                        <select class="form-control" id="inputDirection" placeholder="Direction">
+                        <select class="form-control" id="inputDirection" placeholder="Direction" ng-model="Direction">
                             <option>West</option>
                             <option>North</option>
                             <option>East</option>
@@ -92,13 +92,13 @@
                 <div class="form-group col-sm-6">
                     <label for="inputAuthorOld" class="control-label">Author</label>
                     <div>
-                        <input class="form-control" id="inputAuthorOld" placeholder="Author">
+                        <input class="form-control" id="inputAuthorOld" placeholder="Author" ng-model="AuthorOld">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="inputAuthorNew" class="control-label">Author</label>
                     <div>
-                        <input class="form-control" id="inputAuthorNew" placeholder="Author">
+                        <input class="form-control" id="inputAuthorNew" placeholder="Author" ng-model="AuthorNew">
                     </div>
                 </div>
             </div>
@@ -106,13 +106,13 @@
                 <div class="form-group col-sm-6">
                     <label for="inputSourceOld" class="control-label">Source</label>
                     <div>
-                        <input class="form-control" id="inputSourceOld" placeholder="Source">
+                        <input class="form-control" id="inputSourceOld" placeholder="Source" ng-model="SourceOld">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="inputSourceNew" class="control-label">Source</label>
                     <div>
-                        <input class="form-control" id="inputSourceNew" placeholder="Source">
+                        <input class="form-control" id="inputSourceNew" placeholder="Source" ng-model="SourceNew">
                     </div>
                 </div>
             </div>
@@ -120,13 +120,13 @@
                 <div class="form-group col-sm-6">
                     <label for="inputYearOld" class="control-label">Year</label>
                     <div>
-                        <input class="form-control" id="inputYearOld" placeholder="Year">
+                        <input class="form-control" id="inputYearOld" placeholder="Year" ng-model="YearOld">
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="inputYearNew" class="control-label">Year</label>
                     <div>
-                        <input class="form-control" id="inputYearNew" placeholder="Year">
+                        <input class="form-control" id="inputYearNew" placeholder="Year" ng-model="YearNew">
                     </div>
                 </div>
             </div>
@@ -134,14 +134,21 @@
                 <div class="form-group col-sm-6">
                     <label for="inputText" class="control-label">Text</label>
                     <div>
-                        <textarea class="form-control" id="inputText" rows="3"></textarea>
+                        <textarea class="form-control" id="inputText" rows="3" ng-model="Text"></textarea>
                     </div>
                 </div>
                 <div class="form-group col-sm-6">
                     <label for="inputArticle" class="control-label">Aticle</label>
                     <div>
-                        <select class="form-control" id="inputArticle"></select>
+                        <select class="form-control" id="inputArticle" ng-model="Article"></select>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <input type="submit" ng-click="update($scope)" value="Save" />
+                </div>
+                <div class="form-group col-sm-6">
                 </div>
             </div>
         </div>

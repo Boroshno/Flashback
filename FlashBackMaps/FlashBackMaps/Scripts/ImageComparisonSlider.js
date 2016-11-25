@@ -16,7 +16,7 @@
     imageComparisonContainers.each(function () {
         var actual = $(this);
         //Change the size of .cd-image-container
-        actual.width(actual.find('img').outerWidth());
+        if (actual.find('img').outerWidth() < 768) actual.width(actual.find('img').outerWidth());
         drags(actual.find('.cd-handle'), actual.find('.cd-resize-img'), actual, actual.find('.cd-image-label[data-type="original"]'), actual.find('.cd-image-label[data-type="modified"]'));
     });
 

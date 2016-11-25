@@ -32,9 +32,7 @@ namespace FlashBackMaps
                       "~/Scripts/PageScripts/LeafletMainPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/addflashbackpagescripts").Include(
-                      "~/Scripts/PageScripts/ImageComparorAddFlashbackPage.js",
-                      "~/Scripts/PageScripts/AngularAddFlashBackPage.js",
-                      "~/Scripts/PageScripts/LeafletAddFlashBackPage.js"));
+                      "~/Scripts/PageScripts/AddFlashBackPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/photouploaderjs").Include(
                       "~/Scripts/flow.js",
